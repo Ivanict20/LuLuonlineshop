@@ -1,4 +1,5 @@
-[Uploading navba<!DOCTYPE html>
+[Uploading navbar] 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,4 +38,4 @@
         </div>
     </nav>
 </body>
-</html>r.html…]()
+</html>
