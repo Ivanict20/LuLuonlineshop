@@ -45,8 +45,6 @@
     <link rel="stylesheet" href="./src/nav.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-</head>
-<body>
     <nav class="nav"> </nav>
     <a href="#" class="nav__link">
         <i class="material-icons nav__icon">home</i>
