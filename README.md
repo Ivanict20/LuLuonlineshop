@@ -29,9 +29,9 @@
         <div class="navdiv">
             <div class="logo"><a href="#">LuLuShop</a> </div>
             <ui>
-                <li><a href="#">Home</a> </li>
                 <li><a href="#">About</a> </li>
-                <li><a href="#">Home</a> </li>
+                <li><a href="#">Help Center</a> </li>
+                <li><a href="#">Support</a> </li>
             </ui>
         </div>
     </nav>
