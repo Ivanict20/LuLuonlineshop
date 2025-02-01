@@ -14,7 +14,7 @@
       text-decoration: none; 
    }
    .navbar{
-        background:rgb(6, 155, 255); font-family: calibri; padding-right: 0px;padding-left: 100px;
+        background:rgb(6, 155, 255); font-family: calibri; padding-right: 0px;padding-left: 0px;
    }
    .navdiv{
        display:flex; align-items: center;  justify-content: space-between;
@@ -37,9 +37,9 @@
 <head>
    <naV class="navbar">
 
-    <div class="navdiv">
+    <diV class="navdiv">
     <img src="LuLuShopLogo.jpg"
-       height="60" width="130">
+       height="75" width="150">
        
        <diV class="search">
          <i class="material-icons">search</i>
@@ -54,18 +54,35 @@
            <li> <a href="support.html">Support</a> </li>
          
        </ui>
-   </div>
+   </diV>
 </nav>
 
-</head>
-</body>
+        <diV class="baggyblack">
+            <img src="baggypantsblack.png"
+            height="300" width="400">
 
-<body>
+         <diV class="baggygrey">
+           <img src="baggypantsgrey.png"
+            height="300" width="400">
+
+        <diV class="baggybrown">
+           <img src="baggypantsbrown.png"
+           height="300" width="400">
+    
+        <diV class="baggykhaki">
+          <img src="baggypantskhaki.png"
+           height="300" width="400">
+
+        
+
+
+
     <diV class="icons">
     <a href="">
         <i class="material-icons nav__icon">home</i>
         <br>
         <span>Home</span>
+    </a>
      <a href="">
         <i class="material-icons nav__icon">favorite_border</i>
         <br>
