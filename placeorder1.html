@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        .section {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .shipping-info, .payment-method, .order-summary {
+            font-size: 14px;
+            color: gray;
+        }
+        .product {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .product img {
+            width: 50px;
+            border-radius: 5px;
+        }
+        .product-details {
+            flex-grow: 1;
+        }
+        .price {
+            color:#22248f ;
+            font-weight: bold; 
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: gray;
+        }
+        .shipping-options select, .payment-options select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .total {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 10px;
+        }
+        .place-order {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #22248f;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        .place-order:disabled {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="section shipping-info">
+        <p class="title">Shipping Address</p>
+        <p><b>Ivan E Trinidad</b></p>
+        <p>Gumamela, Balayan, Batangas, South Luzon, 4213</p>
+        <p>Phone: +63 969 568 8431</p>
+    </div>
+
+    <div class="section product">
+        <img src="pantsblack.png" alt="Product">
+        <div class="product-details">
+            <p>Korean's Baggy Pants</p>
+            <p> Black Color </p>
+            <p class="price">₱150 <span class="old-price">₱499</span></p>
+        </div>
+        <p>x1</p>
+    </div>
+
+    <div class="section shipping-options">
+        <p class="title">Shipping Option</p>
+        <select id="shipping" onchange="updateTotal()">
+            <option value="50">Standard Local - ₱50</option>
+            <option value="99">Express Shipping - ₱99</option>
+        </select>
+    </div>
+
+    <div class="section payment-options">
+        <p class="title">Payment Methods</p>
+        <select id="payment-method">
+            <option value="cod">Cash on Delivery</option>
+            <option value="spaylater">SPayLater (Installments)</option>
+        </select>
+    </div>
+
+    <div class="section order-summary">
+        <p class="title">Order Summary</p>
+        <p>Merchandise Subtotal: <b>₱150</b></p>
+        <p>Shipping: <b id="shipping-cost">₱50</b></p>
+        <p>Shipping Discount: <b>-₱100</b></p>
+        <p class="total">Total Payment: <b id="total-payment">₱150</b></p>
+    </div>
+
+    <a href="ordercom1.html" button class="place-order" onclick="placeOrder()">Place Order</button></a>
+</div>
+
+<script>
+
+function addToCart() {
+            let product = {
+                name: "Korean's Baggy Pants ",
+                variant: "Black Color",
+                price: 150,
+                quantity: 1
+            };
+
+            localStorage.setItem("cart", JSON.stringify(product));
+            window.location.href = "placeorder.html";
+        }
+
+    function updateTotal() {
+        let shippingCost = parseInt(document.getElementById("shipping").value);
+        let discount = 50;
+        let total = 150 + shippingCost - discount;
+        document.getElementById("shipping-cost").innerText = "₱" + shippingCost;
+        document.getElementById("total-payment").innerText = "₱" + (total < 0 ? 0 : total);
+    }
+
+    function placeOrder() {
+        let paymentMethod = document.getElementById("payment-method").value;
+        let shippingMethod = document.getElementById("shipping").value;
+        let totalAmount = document.getElementById("total-payment").innerText;
+
+        if (!paymentMethod || !shippingMethod) {
+            alert("Please select a payment and shipping method.");
+            return;
+        }
+
+        // Store order details in localStorage
+        let orderDetails = {
+            name: "Ivan E Trinidad",
+            address: "Gumamela, Balayan, Batangas, South Luzon, 4213",
+            product: "1 Pair Mid Cut Black/White Basketball Socks",
+            shipping: shippingMethod,
+            payment: paymentMethod,
+            total: totalAmount
+        };
+        localStorage.setItem("order", JSON.stringify(orderDetails));
+
+        // Redirect to order confirmation page
+        window.location.href = "order-confirmation.html";
+    }
+</script>
+
+</body>
+</html>
